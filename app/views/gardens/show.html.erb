@@ -7,9 +7,14 @@
     <% @garden.plants.each do |plant| %>
       <div class="col-sm-4">
         <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= plant.image_url %>');">
-          <div class="tags">
-            <% plant.tags.each do |tag| %>
-              <span><%= tag.name %></span>
+          <div class="card-tags">
+            <% plant.plant_tags.each do |plant_tag| %>
+              <span>
+                <%= plant_tag.tag.name %>
+                <%= link_to plant_tag_path(plant_tag), method: :delete, data: { confirm: "Are you sure?" } do %>
+                  <i class="fas fa-times"></i>
+                <% end %>
+              </span>
             <% end %>
             <%= link_to new_plant_plant_tag_path(plant) do %>
               <i class="fas fa-plus"></i>
