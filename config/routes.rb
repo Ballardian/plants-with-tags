@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   resources :plants, only: :destroy
 
   resources :plants, only: [] do
-    resources :plants_tags, only: [:new, :create]
+    resources :plant_tags, only: [:new, :create]
   end
 end

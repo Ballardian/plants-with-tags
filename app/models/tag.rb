@@ -1,4 +1,4 @@
 class Tag < ApplicationRecord
-  has_many :plants_tags, dependent: :destroy
-  has_many :plants, through: :plants_tags
+  has_many :plant_tags, dependent: :destroy
+  has_many :plants, through: :plant_tags
 end
