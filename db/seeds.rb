@@ -23,6 +23,6 @@ Tag.destroy_all if Rails.env.development?
 Tag.create!(name: "Fruit tree")
 Tag.create!(name: "Cactus")
 Tag.create!(name: "Greasy plant")
-Tag.create!(name: "Flowering plants")
+Tag.create!(name: "Flower")
 Tag.create!(name: "Ferns")
 Tag.create!(name: "Conifers")

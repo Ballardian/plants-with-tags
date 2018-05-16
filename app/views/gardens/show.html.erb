@@ -9,9 +9,11 @@
         <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= plant.image_url %>');">
           <div class="tags">
             <% plant.tags.each do |tag| %>
-              <p><%= tag.name %></p>
+              <span><%= tag.name %></span>
             <% end %>
-            <%= link_to "Add new tag", new_plant_plants_tag_path(plant), class: "btn btn-primary" %>
+            <%= link_to new_plant_plants_tag_path(plant) do %>
+              <i class="fas fa-plus"></i>
+            <% end %>
           </div>
           <div class="card-description">
             <h2><%= plant.name %></h2>
