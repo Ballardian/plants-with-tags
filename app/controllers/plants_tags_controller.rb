@@ -6,11 +6,13 @@ class PlantsTagsController < ApplicationController
 
   def create
     @plant = Plant.find(params[:plant_id])
-    @tag = Tag.find(params[:plants_tag][:tag])
-    @plants_tag = PlantsTag.new
-    @plants_tag.plant = @plant
-    @plants_tag.tag = @tag
-    @plants_tag.save
+    @tags = Tag.find(params[:plants_tag][:tag])
+    @tags.each do |tag|
+      plants_tag = PlantsTag.new
+      plants_tag.plant = @plant
+      plants_tag.tag = tag
+      plants_tag.save
+    end
     redirect_to garden_path(@plant.garden)
   end
 end
