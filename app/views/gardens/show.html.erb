@@ -7,6 +7,12 @@
     <% @garden.plants.each do |plant| %>
       <div class="col-sm-4">
         <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= plant.image_url %>');">
+          <div class="tags">
+            <% plant.tags.each do |tag| %>
+              <p><%= tag.name %></p>
+            <% end %>
+            <%= link_to "Add new tag", new_plant_plants_tag_path(plant), class: "btn btn-primary" %>
+          </div>
           <div class="card-description">
             <h2><%= plant.name %></h2>
           </div>
